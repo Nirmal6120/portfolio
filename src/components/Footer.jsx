@@ -10,7 +10,6 @@ const Footer = () => {
                         <p className="text-gray-400 text-sm">
                             © {new Date().getFullYear()} Nirmal Patel. All rights reserved.
                         </p>
-                        <p className="text-gray-500 text-sm mt-1">Built with React, motion, and a Three.js hero scene.</p>
                     </div>
                     <div className="flex space-x-6">
                         <a

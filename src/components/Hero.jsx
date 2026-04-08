@@ -7,7 +7,7 @@ const HeroCanvas = lazy(() => import('./HeroCanvas'));
 
 const heroStats = [
     { value: '2+', label: 'Years building products' },
-    { value: '10+', label: 'Production-grade projects' },
+    { value: '5+', label: 'Production-grade projects' },
     { value: 'Full Stack', label: 'Frontend to backend delivery' },
 ];
 
@@ -111,7 +111,7 @@ const Hero = () => {
                             View Projects <ArrowRight size={20} className="ml-2" />
                         </Link>
                         <a
-                            href="/resume.pdf"
+                            href="/Nirmal-Patel-Resume.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white rounded-full font-bold transition-all backdrop-blur-sm flex items-center"
@@ -128,6 +128,7 @@ const Hero = () => {
                     >
                         <span className="hero-caption-pill">React</span>
                         <span className="hero-caption-pill">Node.js</span>
+                        <span className="hero-caption-pill">Mainframe</span>
                         <span className="hero-caption-pill">UI Engineering</span>
                         <span className="hero-caption-pill">Automation</span>
                     </Motion.div>

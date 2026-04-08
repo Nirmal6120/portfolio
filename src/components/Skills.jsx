@@ -30,7 +30,7 @@ const Skills = () => {
         {
             title: 'Tools & DevOps',
             accent: 'from-blue-400/30 to-cyan-500/5',
-            skills: ['Git', 'Docker', 'AWS', 'Webpack', 'Vite', 'Linux']
+            skills: ['Git', 'Docker', 'AWS', 'Webpack', 'Vite', 'Linux', 'Mainframe (COBOL/JCL)']
         },
         {
             title: 'Databases',
