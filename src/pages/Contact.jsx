@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import { Mail, MapPin, Phone, Send } from 'lucide-react';
 
 const Contact = () => {
@@ -16,7 +16,7 @@ const Contact = () => {
     return (
         <div className="pt-24 pb-20 min-h-screen relative z-10">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <motion.div
+                <Motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
@@ -26,11 +26,11 @@ const Contact = () => {
                     <p className="text-gray-400 max-w-2xl mx-auto text-lg">
                         Have a project in mind or just want to say hi? I'd love to hear from you.
                     </p>
-                </motion.div>
+                </Motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                     {/* Contact Info */}
-                    <motion.div
+                    <Motion.div
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
@@ -55,10 +55,10 @@ const Contact = () => {
                                 <p className="text-gray-400">Ontario, Canada </p>
                             </div>
                         </div>
-                    </motion.div>
+                    </Motion.div>
 
                     {/* Contact Form */}
-                    <motion.div
+                    <Motion.div
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, delay: 0.4 }}
@@ -102,7 +102,7 @@ const Contact = () => {
                                 Send Message <Send size={20} className="ml-2" />
                             </button>
                         </form>
-                    </motion.div>
+                    </Motion.div>
                 </div>
             </div>
         </div>

@@ -1,42 +1,104 @@
-import { motion } from 'framer-motion';
+import { lazy, Suspense, useEffect, useState } from 'react';
+import { motion as Motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Download } from 'lucide-react';
 
+const HeroCanvas = lazy(() => import('./HeroCanvas'));
+
+const heroStats = [
+    { value: '2+', label: 'Years building products' },
+    { value: '10+', label: 'Production-grade projects' },
+    { value: 'Full Stack', label: 'Frontend to backend delivery' },
+];
+
+const roleTitles = ['DEVELOPER', 'ENGINEER', 'CREATOR'];
+
 const Hero = () => {
+    const [activeRoleIndex, setActiveRoleIndex] = useState(0);
+
+    useEffect(() => {
+        const roleInterval = window.setInterval(() => {
+            setActiveRoleIndex((currentIndex) => (currentIndex + 1) % roleTitles.length);
+        }, 2200);
+
+        return () => window.clearInterval(roleInterval);
+    }, []);
+
     return (
-        <section className="min-h-screen flex items-center justify-center pt-16 relative overflow-hidden">
+        <section className="hero-three-scene min-h-screen flex items-center justify-center pt-16 relative overflow-hidden">
+            <Suspense fallback={<div className="hero-canvas-fallback" aria-hidden="true"></div>}>
+                <HeroCanvas />
+            </Suspense>
+            <div className="hero-three-grid" aria-hidden="true"></div>
+            <div className="hero-three-glow" aria-hidden="true"></div>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center relative z-10">
                 <div className="md:w-1/2 text-center md:text-left">
-                    <motion.div
+                    <Motion.div
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5 }}
                         className="inline-block px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-6"
                     >
                         <span className="text-accent font-medium">Available for work</span>
-                    </motion.div>
+                    </Motion.div>
 
-                    <motion.h1
+                    <Motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.1 }}
                         className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight"
                     >
-                        Building <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-purple-500">Digital</span>
+                        Building <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-cyan-200 to-purple-500">Digital</span>
                         <br />
-                        Experiences
-                    </motion.h1>
+                        Systems That Feel Alive
+                    </Motion.h1>
 
-                    <motion.p
+                    <Motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
                         className="text-gray-400 text-lg md:text-xl mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed"
                     >
-                        I'm Nirmal Patel, a Full Stack Developer specializing in building exceptional digital experiences that are fast, accessible, and visually stunning.
-                    </motion.p>
+                        I’m Nirmal Patel, a full stack developer focused on performant web apps, polished interfaces, and product experiences that balance clean engineering with strong visual direction.
+                    </Motion.p>
 
-                    <motion.div
+                    <Motion.div
+                        initial={{ opacity: 0, y: 16 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.45, delay: 0.22 }}
+                        className="hero-role-wrap"
+                    >
+                        <span className="hero-role-prefix">A Full Stack</span>
+                        <div className="hero-role-frame">
+                            <Motion.div
+                                key={roleTitles[activeRoleIndex]}
+                                initial={{ opacity: 0, y: 10, filter: 'blur(4px)' }}
+                                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 0.32 }}
+                                className="hero-role-text"
+                                data-text={roleTitles[activeRoleIndex]}
+                            >
+                                {roleTitles[activeRoleIndex]}
+                            </Motion.div>
+                        </div>
+                    </Motion.div>
+
+                    <Motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.25 }}
+                        className="hero-stat-grid"
+                    >
+                        {heroStats.map((stat) => (
+                            <div key={stat.label} className="hero-stat-card">
+                                <span className="hero-stat-value">{stat.value}</span>
+                                <span className="hero-stat-label">{stat.label}</span>
+                            </div>
+                        ))}
+                    </Motion.div>
+
+                    <Motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.3 }}
@@ -56,25 +118,45 @@ const Hero = () => {
                         >
                             Download Resume <Download size={20} className="ml-2" />
                         </a>
-                    </motion.div>
+                    </Motion.div>
+
+                    <Motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.4 }}
+                        className="hero-caption-row"
+                    >
+                        <span className="hero-caption-pill">React</span>
+                        <span className="hero-caption-pill">Node.js</span>
+                        <span className="hero-caption-pill">UI Engineering</span>
+                        <span className="hero-caption-pill">Automation</span>
+                    </Motion.div>
                 </div>
 
                 <div className="md:w-1/2 mt-16 md:mt-0 flex justify-center relative">
-                    <motion.div
+                    <Motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
-                        className="relative w-72 h-72 md:w-[500px] md:h-[500px]"
+                        className="three-portrait-stage relative w-72 h-72 md:w-[500px] md:h-[500px]"
                     >
-                        <div className="absolute inset-0 bg-gradient-to-tr from-accent to-purple-500 rounded-full blur-[100px] opacity-50 animate-pulse"></div>
-                        <div className="relative w-full h-full rounded-full overflow-hidden border border-white/10 backdrop-blur-sm bg-white/5 p-4 transform rotate-3 hover:rotate-0 transition-all duration-500">
+                        <div className="absolute inset-0 bg-gradient-to-tr from-accent to-cyan-200 rounded-full blur-[100px] opacity-50 animate-pulse"></div>
+                        <div className="three-orbit-ring three-orbit-ring-one" aria-hidden="true"></div>
+                        <div className="three-orbit-ring three-orbit-ring-two" aria-hidden="true"></div>
+                        <div className="three-float-node three-float-node-one" aria-hidden="true"></div>
+                        <div className="three-float-node three-float-node-two" aria-hidden="true"></div>
+                        <div className="three-card-shell relative w-full h-full rounded-full overflow-hidden border border-white/10 backdrop-blur-sm bg-white/5 p-4 transform rotate-3 hover:rotate-0 transition-all duration-500">
                             <img
                                 src="/images/image Nirmal.jpeg"
                                 alt="Nirmal Patel"
                                 className="w-full h-full object-cover rounded-full grayscale hover:grayscale-0 transition-all duration-500"
                             />
                         </div>
-                    </motion.div>
+                        <div className="three-status-chip" aria-hidden="true">
+                            <span className="three-status-dot"></span>
+                            Nirmal Patel
+                        </div>
+                    </Motion.div>
                 </div>
             </div>
         </section>

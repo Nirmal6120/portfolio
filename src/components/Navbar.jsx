@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, Github, Linkedin, Mail } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X, Github, Linkedin } from 'lucide-react';
+import { motion as Motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -69,7 +69,7 @@ const Navbar = () => {
             {/* Mobile Menu */}
             <AnimatePresence>
                 {isOpen && (
-                    <motion.div
+                    <Motion.div
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
@@ -88,7 +88,7 @@ const Navbar = () => {
                             ))}
                             <div className="flex items-center space-x-4 px-3 py-2 mt-2 border-t border-white/10">
                                 <a
-                                    href="https://github.com"
+                                    href="https://github.com/Nirmal6120?tab=repositories"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="text-gray-300 hover:text-white"
@@ -96,7 +96,7 @@ const Navbar = () => {
                                     <Github size={20} />
                                 </a>
                                 <a
-                                    href="https://linkedin.com"
+                                    href="https://www.linkedin.com/in/nirmal-patel-/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="text-gray-300 hover:text-white"
@@ -105,7 +105,7 @@ const Navbar = () => {
                                 </a>
                             </div>
                         </div>
-                    </motion.div>
+                    </Motion.div>
                 )}
             </AnimatePresence>
         </nav>
