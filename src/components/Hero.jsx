@@ -147,7 +147,7 @@ const Hero = () => {
                         <div className="three-float-node three-float-node-two" aria-hidden="true"></div>
                         <div className="three-card-shell relative w-full h-full rounded-full overflow-hidden border border-white/10 backdrop-blur-sm bg-white/5 p-4 transform rotate-3 hover:rotate-0 transition-all duration-500">
                             <img
-                                src="/images/image Nirmal.jpeg"
+                                src="/images/my-portfolio.jpeg"
                                 alt="Nirmal Patel"
                                 className="w-full h-full object-cover rounded-full grayscale hover:grayscale-0 transition-all duration-500"
                             />
