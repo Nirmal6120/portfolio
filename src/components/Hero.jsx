@@ -111,7 +111,7 @@ const Hero = () => {
                             View Projects <ArrowRight size={20} className="ml-2" />
                         </Link>
                         <a
-                            href="/Nirmal-Patel-Resume.pdf"
+                            href="/Nirmal_Patel_Resume.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white rounded-full font-bold transition-all backdrop-blur-sm flex items-center"
